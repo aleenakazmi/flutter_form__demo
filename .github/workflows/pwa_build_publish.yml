@@ -3,7 +3,7 @@ name: Build Flutter PWA
 on:
   push:
     branches: 
-      - source
+      - master
 
 jobs:
   build:
@@ -28,7 +28,7 @@ jobs:
         git config --global user.email s.aleenakazmi@gmail.com
         git config --global user.name aleenakazmi
         git status
-        git remote add origin https://${{secrets.commit_secret}}@github.com/aleenakazmi/flutterform.git
+        git remote add origin https://${{secrets.commit_secret}}@github.com/aleenakazmi/flutter_form_demo.git
         git checkout -b gh-pages
         git add --all
         git commit -m "update"
