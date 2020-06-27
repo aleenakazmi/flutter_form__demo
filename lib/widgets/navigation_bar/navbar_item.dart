@@ -14,10 +14,10 @@ class NavBarItem extends StatelessWidget {
         locator<NavigationService>().navigateTo(navigationPath);
       },
       child: Padding(
-        padding: const EdgeInsets.only(left: 44.0),
+        padding: const EdgeInsets.only(left: 34.0),
         child: Text(
           title,
-          style: TextStyle(fontSize: 18),
+          style: TextStyle(fontSize: 15),
         ),
       ),
     );

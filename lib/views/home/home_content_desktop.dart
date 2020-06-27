@@ -7,14 +7,13 @@ class HomeContentDesktop extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
+    return Column(
       children: <Widget>[
         CourseDetails(),
-        Expanded(
-          child: Center(
-            child: CallToAction('Join Course'),
-          ),
-        )
+        SizedBox(
+          height: 100,
+        ),
+        CallToAction('Submit'),
       ],
     );
   }

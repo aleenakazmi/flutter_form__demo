@@ -14,12 +14,12 @@ class NavigationDrawerHeader extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         children: <Widget>[
           Text(
-            'SKILL UP NOW',
+            'Smart Channel',
             style: TextStyle(
                 fontSize: 18, fontWeight: FontWeight.w800, color: Colors.white),
           ),
           Text(
-            'TAP HERE',
+            'Application Form',
             style: TextStyle(
               color: Colors.white,
             ),

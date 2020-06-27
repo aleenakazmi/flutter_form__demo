@@ -15,7 +15,7 @@ class HomeContentMobile extends StatelessWidget {
         SizedBox(
           height: 100,
         ),
-        CallToAction('Join Course'),
+        CallToAction('Submit'),
       ],
     );
   }

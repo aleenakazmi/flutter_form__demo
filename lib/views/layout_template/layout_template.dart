@@ -14,6 +14,7 @@ class LayoutTemplate extends StatelessWidget {
   Widget build(BuildContext context) {
     return ResponsiveBuilder(
       builder: (context, sizingInformation) => Scaffold(
+        resizeToAvoidBottomInset: false,
         drawer: sizingInformation.isMobile ? NavigationDrawer() : null,
         backgroundColor: Colors.white,
         body: CenteredView(

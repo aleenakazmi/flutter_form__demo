@@ -8,7 +8,7 @@ class AboutView extends StatelessWidget {
     return Container(
       color: Colors.lime[400],
       child: Center(
-        child: Text('About View'),
+        child: Text('Fees & Payments View'),
       ),
     );
   }

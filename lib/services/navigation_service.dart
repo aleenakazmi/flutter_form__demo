@@ -13,7 +13,7 @@ class NavigationService {
     return Future<void>.value();
   }
 
-  bool goBack() {
+  goBack() {
     navigatorKey.currentState.pop();
   }
 
