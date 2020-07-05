@@ -5,6 +5,7 @@ import 'package:the_basics/routing/router.dart';
 import 'package:the_basics/services/navigation_service.dart';
 import 'package:the_basics/widgets/bottom_bar/bottom_bar.dart';
 import 'package:responsive_builder/responsive_builder.dart';
+import 'package:the_basics/widgets/navigation_drawer/navigation_drawer.dart';
 import 'package:the_basics/widgets/top_bar/top_bar.dart';
 
 class LayoutTemplate extends StatelessWidget {
@@ -14,6 +15,9 @@ class LayoutTemplate extends StatelessWidget {
   Widget build(BuildContext context) {
     return ResponsiveBuilder(
       builder: (context, sizingInformation) => Scaffold(
+        drawer: sizingInformation.deviceScreenType == DeviceScreenType.mobile
+            ? NavigationDrawer()
+            : null,
         appBar: TopBar(),
         floatingActionButton: FloatingActionButton(
           backgroundColor: textColor,

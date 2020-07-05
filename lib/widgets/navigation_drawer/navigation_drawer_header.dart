@@ -6,24 +6,33 @@ class NavigationDrawerHeader extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final Image capitalImage = Image.asset('assets/dubai-capital.png',
+        fit: BoxFit.contain,
+        height: 42,
+        width: 120,
+        alignment: FractionalOffset.center);
     return Container(
       height: 150,
-      color: primaryColor,
+      color: Color(0xffefebe9),
       alignment: Alignment.center,
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: <Widget>[
-          Text(
-            'Smart Channel',
-            style: TextStyle(
-                fontSize: 18, fontWeight: FontWeight.w800, color: Colors.white),
+          capitalImage,
+          FlatButton.icon(
+            icon: Text('zcrfs32'),
+            label: Icon(Icons.arrow_drop_down),
+            shape: StadiumBorder(),
+            onPressed: () {},
+            color: Colors.white,
+            hoverColor: Colors.white,
           ),
-          Text(
-            'Application Form',
-            style: TextStyle(
-              color: Colors.white,
-            ),
-          )
+//          Text(
+//            'Logout',
+//            style: TextStyle(
+//              color: Colors.white,
+//            ),
+//          )
         ],
       ),
     );

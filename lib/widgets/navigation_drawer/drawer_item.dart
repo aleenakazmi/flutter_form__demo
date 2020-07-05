@@ -13,9 +13,9 @@ class DrawerItem extends StatelessWidget {
       padding: const EdgeInsets.only(left: 30, top: 60),
       child: Row(
         children: <Widget>[
-          Icon(icon),
+          //Icon(icon),
           SizedBox(
-            width: 30,
+            width: 20,
           ),
           NavBarItem(title, navigationPath),
         ],

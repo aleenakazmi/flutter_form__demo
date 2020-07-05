@@ -19,9 +19,9 @@ class NavigationDrawer extends StatelessWidget {
       child: Column(
         children: <Widget>[
           NavigationDrawerHeader(),
-          DrawerItem('Application Details', Icons.home, Routes.home),
-          DrawerItem('Documents', Icons.pages, Routes.page2),
-          DrawerItem('Fees & Payments', Icons.help, Routes.about),
+          DrawerItem('My Establishments', Icons.home, Routes.home),
+          DrawerItem('Status Inquiry', Icons.pages, Routes.page2),
+          DrawerItem('Reports', Icons.help, Routes.about),
         ],
       ),
     );

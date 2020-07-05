@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 import 'package:responsive_builder/responsive_builder.dart';
 import 'package:the_basics/constants/app_colors.dart';
+import 'package:the_basics/widgets/call_to_action/call_to_action.dart';
+import 'package:the_basics/widgets/form_details/Section_Titles.dart';
 
 class MyFormDetails extends StatefulWidget {
   @override
@@ -50,17 +52,33 @@ class _MyFormDetailsState extends State<MyFormDetails> {
               ? 16
               : 21;
 
-      double controlSize =
+      double screenWidth =
           sizingInformation.deviceScreenType == DeviceScreenType.mobile
-              ? 14
-              : 18;
+              ? 420
+              : 700;
+
+      double controlwidth =
+          sizingInformation.deviceScreenType == DeviceScreenType.mobile
+              ? 150
+              : 320;
+
+      double singlecontrolwidth =
+          sizingInformation.deviceScreenType == DeviceScreenType.mobile
+              ? 300
+              : 650;
+
+      double radiocontrolwidth =
+          sizingInformation.deviceScreenType == DeviceScreenType.mobile
+              ? 1
+              : 130;
+
       final theme = Theme.of(context).copyWith(dividerColor: Colors.white);
       return Row(
           crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisSize: MainAxisSize.max,
           children: <Widget>[
             Container(
-              width: 700,
+              width: screenWidth,
               decoration: BoxDecoration(
                 color: Colors.white,
                 borderRadius: BorderRadius.circular(10),
@@ -113,26 +131,32 @@ class _MyFormDetailsState extends State<MyFormDetails> {
                                     textAlign: textAlignment,
                                   ),
                                   SizedBox(height: 20),
-                                  TextFormField(
-                                      decoration: InputDecoration(
-                                    labelText: "Client Reference No.",
-                                    fillColor: Colors.white,
-                                    contentPadding: const EdgeInsets.all(6.0),
-                                    enabledBorder: OutlineInputBorder(
-                                      borderRadius: BorderRadius.circular(5.0),
-                                      borderSide: BorderSide(
-                                        color: Colors.black38,
-                                        width: 0.5,
+                                  SizedBox(
+                                    width: singlecontrolwidth,
+                                    height: 65,
+                                    child: TextFormField(
+                                        decoration: InputDecoration(
+                                      labelText: "Client Reference No.",
+                                      fillColor: Colors.white,
+                                      contentPadding: const EdgeInsets.all(6.0),
+                                      enabledBorder: OutlineInputBorder(
+                                        borderRadius:
+                                            BorderRadius.circular(5.0),
+                                        borderSide: BorderSide(
+                                          color: Colors.black38,
+                                          width: 0.5,
+                                        ),
                                       ),
-                                    ),
-                                    focusedBorder: OutlineInputBorder(
-                                      borderRadius: BorderRadius.circular(5.0),
-                                      borderSide: BorderSide(
-                                        color: Colors.black38,
-                                        width: 0.5,
+                                      focusedBorder: OutlineInputBorder(
+                                        borderRadius:
+                                            BorderRadius.circular(5.0),
+                                        borderSide: BorderSide(
+                                          color: Colors.black38,
+                                          width: 0.5,
+                                        ),
                                       ),
-                                    ),
-                                  )),
+                                    )),
+                                  ),
                                 ],
                               ),
                             ),
@@ -164,150 +188,158 @@ class _MyFormDetailsState extends State<MyFormDetails> {
                                   const EdgeInsets.symmetric(horizontal: 17.0),
                               alignment: Alignment.topLeft,
                               child: Column(
-                                mainAxisSize: MainAxisSize.max,
+                                mainAxisSize: MainAxisSize.min,
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: <Widget>[
                                   SizedBox(height: 15),
-                                  DropdownButtonFormField(
-                                    decoration: InputDecoration(
-                                      labelText: 'Visit Purpose \*',
-                                      fillColor: Colors.white,
-                                      contentPadding: const EdgeInsets.all(6.0),
-                                      enabledBorder: OutlineInputBorder(
-                                        borderRadius:
-                                            BorderRadius.circular(5.0),
-                                        borderSide: BorderSide(
-                                          color: Colors.black38,
-                                          width: 0.5,
+                                  SizedBox(
+                                    width: singlecontrolwidth,
+                                    height: 65,
+                                    child: DropdownButtonFormField(
+                                      decoration: InputDecoration(
+                                        labelText: 'Visit Purpose \*',
+                                        fillColor: Colors.white,
+                                        contentPadding:
+                                            const EdgeInsets.all(6.0),
+                                        enabledBorder: OutlineInputBorder(
+                                          borderRadius:
+                                              BorderRadius.circular(5.0),
+                                          borderSide: BorderSide(
+                                            color: Colors.black38,
+                                            width: 0.5,
+                                          ),
+                                        ),
+                                        focusedBorder: OutlineInputBorder(
+                                          borderRadius:
+                                              BorderRadius.circular(5.0),
+                                          borderSide: BorderSide(
+                                            color: Colors.black38,
+                                            width: 0.5,
+                                          ),
                                         ),
                                       ),
-                                      focusedBorder: OutlineInputBorder(
-                                        borderRadius:
-                                            BorderRadius.circular(5.0),
-                                        borderSide: BorderSide(
-                                          color: Colors.black38,
-                                          width: 0.5,
-                                        ),
+                                      isExpanded: true,
+                                      value: _selectedPurpose,
+                                      style: TextStyle(
+                                        //fontSize: controlSize,
+                                        color: Colors.black,
                                       ),
+                                      onChanged: (newValue) {
+                                        setState(() {
+                                          _selectedPurpose = newValue;
+                                        });
+                                      },
+                                      items: _purpose.map((location) {
+                                        return DropdownMenuItem(
+                                          child: new Text(location),
+                                          value: location,
+                                        );
+                                      }).toList(),
                                     ),
-                                    isExpanded: true,
-                                    value: _selectedPurpose,
-                                    style: TextStyle(
-                                      //fontSize: controlSize,
-                                      color: Colors.black,
-                                    ),
-                                    onChanged: (newValue) {
-                                      setState(() {
-                                        _selectedPurpose = newValue;
-                                      });
-                                    },
-                                    items: _purpose.map((location) {
-                                      return DropdownMenuItem(
-                                        child: new Text(location),
-                                        value: location,
-                                      );
-                                    }).toList(),
                                   ),
                                   SizedBox(height: 30),
+                                  Row(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    mainAxisSize: MainAxisSize.min,
+                                    children: <Widget>[
+                                      SizedBox(
+                                        width: controlwidth,
+                                        height: 65,
+                                        child: DropdownButtonFormField(
+                                          decoration: InputDecoration(
+                                            labelText: 'Duration \*',
+                                            fillColor: Colors.white,
+                                            contentPadding:
+                                                const EdgeInsets.all(6.0),
+                                            enabledBorder: OutlineInputBorder(
+                                              borderRadius:
+                                                  BorderRadius.circular(5.0),
+                                              borderSide: BorderSide(
+                                                color: Colors.black38,
+                                                width: 0.5,
+                                              ),
+                                            ),
+                                            focusedBorder: OutlineInputBorder(
+                                              borderRadius:
+                                                  BorderRadius.circular(5.0),
+                                              borderSide: BorderSide(
+                                                color: Colors.black38,
+                                                width: 0.5,
+                                              ),
+                                            ),
+                                          ),
+                                          isExpanded: true,
+                                          value: _selectedDuration,
+                                          style: TextStyle(
+                                            //fontSize: controlSize,
+                                            color: Colors.black,
+                                          ),
+                                          onChanged: (newValue) {
+                                            setState(() {
+                                              _selectedDuration = newValue;
+                                            });
+                                          },
+                                          items: _duration.map((location) {
+                                            return DropdownMenuItem(
+                                              child: new Text(location),
+                                              value: location,
+                                            );
+                                          }).toList(),
+                                        ),
+                                      ),
+                                      SizedBox(
+                                        width: 15,
+                                      ),
+                                      SizedBox(
+                                        width: controlwidth,
+                                        height: 65,
+                                        child: DropdownButtonFormField(
+                                          decoration: InputDecoration(
+                                            labelText: 'Entry \*',
+                                            fillColor: Colors.white,
+                                            contentPadding:
+                                                const EdgeInsets.all(6.0),
+                                            enabledBorder: OutlineInputBorder(
+                                              borderRadius:
+                                                  BorderRadius.circular(5.0),
+                                              borderSide: BorderSide(
+                                                color: Colors.black38,
+                                                width: 0.5,
+                                              ),
+                                            ),
+                                            focusedBorder: OutlineInputBorder(
+                                              borderRadius:
+                                                  BorderRadius.circular(5.0),
+                                              borderSide: BorderSide(
+                                                color: Colors.black38,
+                                                width: 0.5,
+                                              ),
+                                            ),
+                                          ),
+                                          isExpanded: true,
+                                          value: _selectedEntry,
+                                          style: TextStyle(
+                                            //fontSize: controlSize,
+                                            color: Colors.black,
+                                          ),
+                                          onChanged: (newValue) {
+                                            setState(() {
+                                              _selectedEntry = newValue;
+                                            });
+                                          },
+                                          items: _entry.map((location) {
+                                            return DropdownMenuItem(
+                                              child: new Text(location),
+                                              value: location,
+                                            );
+                                          }).toList(),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
                                 ],
                               ),
-                            ),
-                            Row(
-                              mainAxisSize: MainAxisSize.min,
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: <Widget>[
-                                SizedBox(
-                                  width: 320,
-                                  height: 65,
-                                  child: DropdownButtonFormField(
-                                    decoration: InputDecoration(
-                                      labelText: 'Duration \*',
-                                      fillColor: Colors.white,
-                                      contentPadding: const EdgeInsets.all(6.0),
-                                      enabledBorder: OutlineInputBorder(
-                                        borderRadius:
-                                            BorderRadius.circular(5.0),
-                                        borderSide: BorderSide(
-                                          color: Colors.black38,
-                                          width: 0.5,
-                                        ),
-                                      ),
-                                      focusedBorder: OutlineInputBorder(
-                                        borderRadius:
-                                            BorderRadius.circular(5.0),
-                                        borderSide: BorderSide(
-                                          color: Colors.black38,
-                                          width: 0.5,
-                                        ),
-                                      ),
-                                    ),
-                                    isExpanded: true,
-                                    value: _selectedDuration,
-                                    style: TextStyle(
-                                      //fontSize: controlSize,
-                                      color: Colors.black,
-                                    ),
-                                    onChanged: (newValue) {
-                                      setState(() {
-                                        _selectedDuration = newValue;
-                                      });
-                                    },
-                                    items: _duration.map((location) {
-                                      return DropdownMenuItem(
-                                        child: new Text(location),
-                                        value: location,
-                                      );
-                                    }).toList(),
-                                  ),
-                                ),
-                                SizedBox(
-                                  width: 15,
-                                ),
-                                SizedBox(
-                                  width: 320,
-                                  height: 65,
-                                  child: DropdownButtonFormField(
-                                    decoration: InputDecoration(
-                                      labelText: 'Entry \*',
-                                      fillColor: Colors.white,
-                                      contentPadding: const EdgeInsets.all(6.0),
-                                      enabledBorder: OutlineInputBorder(
-                                        borderRadius:
-                                            BorderRadius.circular(5.0),
-                                        borderSide: BorderSide(
-                                          color: Colors.black38,
-                                          width: 0.5,
-                                        ),
-                                      ),
-                                      focusedBorder: OutlineInputBorder(
-                                        borderRadius:
-                                            BorderRadius.circular(5.0),
-                                        borderSide: BorderSide(
-                                          color: Colors.black38,
-                                          width: 0.5,
-                                        ),
-                                      ),
-                                    ),
-                                    isExpanded: true,
-                                    value: _selectedEntry,
-                                    style: TextStyle(
-                                      //fontSize: controlSize,
-                                      color: Colors.black,
-                                    ),
-                                    onChanged: (newValue) {
-                                      setState(() {
-                                        _selectedEntry = newValue;
-                                      });
-                                    },
-                                    items: _entry.map((location) {
-                                      return DropdownMenuItem(
-                                        child: new Text(location),
-                                        value: location,
-                                      );
-                                    }).toList(),
-                                  ),
-                                ),
-                              ],
                             ),
                           ],
                         ),
@@ -359,9 +391,7 @@ class _MyFormDetailsState extends State<MyFormDetails> {
                                         'Search Passport Data',
                                         style: new TextStyle(fontSize: 16.0),
                                       ),
-                                      SizedBox(
-                                        width: 130,
-                                      ),
+                                      SizedBox(width: radiocontrolwidth),
                                       Radio(
                                         value: Passport.Scan,
                                         groupValue: _radioValue1,
@@ -387,7 +417,7 @@ class _MyFormDetailsState extends State<MyFormDetails> {
                                         CrossAxisAlignment.start,
                                     children: <Widget>[
                                       SizedBox(
-                                        width: 320,
+                                        width: controlwidth,
                                         height: 65,
                                         child: DropdownButtonFormField(
                                           decoration: InputDecoration(
@@ -435,7 +465,7 @@ class _MyFormDetailsState extends State<MyFormDetails> {
                                         width: 10,
                                       ),
                                       SizedBox(
-                                        width: 320,
+                                        width: controlwidth,
                                         height: 80,
                                         child: TextFormField(
                                             decoration: InputDecoration(
@@ -470,7 +500,7 @@ class _MyFormDetailsState extends State<MyFormDetails> {
                                     children: <Widget>[
                                       SizedBox(height: 20),
                                       SizedBox(
-                                        width: 320,
+                                        width: controlwidth,
                                         height: 65,
                                         child: DropdownButtonFormField(
                                           decoration: InputDecoration(
@@ -518,7 +548,7 @@ class _MyFormDetailsState extends State<MyFormDetails> {
                                         width: 10,
                                       ),
                                       SizedBox(
-                                        width: 320,
+                                        width: controlwidth,
                                         height: 65,
                                         child: DropdownButtonFormField(
                                           decoration: InputDecoration(
@@ -613,6 +643,8 @@ class _MyFormDetailsState extends State<MyFormDetails> {
                                   const EdgeInsets.symmetric(horizontal: 17.0),
                               alignment: Alignment.topLeft,
                               child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                mainAxisSize: MainAxisSize.min,
                                 children: <Widget>[
                                   CheckboxListTile(
                                     title: Text('Is Inside UAE'),
@@ -645,7 +677,7 @@ class _MyFormDetailsState extends State<MyFormDetails> {
                                         CrossAxisAlignment.start,
                                     children: <Widget>[
                                       SizedBox(
-                                        width: 320,
+                                        width: controlwidth,
                                         height: 65,
                                         child: TextFormField(
                                             decoration: InputDecoration(
@@ -675,7 +707,7 @@ class _MyFormDetailsState extends State<MyFormDetails> {
                                         width: 10,
                                       ),
                                       SizedBox(
-                                        width: 320,
+                                        width: controlwidth,
                                         height: 80,
                                         child: TextFormField(
                                             decoration: InputDecoration(
@@ -710,7 +742,7 @@ class _MyFormDetailsState extends State<MyFormDetails> {
                                     children: <Widget>[
                                       SizedBox(height: 20),
                                       SizedBox(
-                                        width: 320,
+                                        width: controlwidth,
                                         height: 65,
                                         child: DropdownButtonFormField(
                                           decoration: InputDecoration(
@@ -758,7 +790,7 @@ class _MyFormDetailsState extends State<MyFormDetails> {
                                         width: 10,
                                       ),
                                       SizedBox(
-                                        width: 320,
+                                        width: controlwidth,
                                         height: 80,
                                         child: TextFormField(
                                             decoration: InputDecoration(
@@ -794,7 +826,7 @@ class _MyFormDetailsState extends State<MyFormDetails> {
                                     children: <Widget>[
                                       SizedBox(height: 20),
                                       SizedBox(
-                                        width: 320,
+                                        width: controlwidth,
                                         height: 65,
                                         child: DropdownButtonFormField(
                                           decoration: InputDecoration(
@@ -842,7 +874,7 @@ class _MyFormDetailsState extends State<MyFormDetails> {
                                         width: 10,
                                       ),
                                       SizedBox(
-                                        width: 320,
+                                        width: controlwidth,
                                         height: 65,
                                         child: DropdownButtonFormField(
                                           decoration: InputDecoration(
@@ -895,7 +927,7 @@ class _MyFormDetailsState extends State<MyFormDetails> {
                                     children: <Widget>[
                                       SizedBox(height: 20),
                                       SizedBox(
-                                        width: 320,
+                                        width: controlwidth,
                                         height: 65,
                                         child: DropdownButtonFormField(
                                           decoration: InputDecoration(
@@ -943,7 +975,7 @@ class _MyFormDetailsState extends State<MyFormDetails> {
                                         width: 10,
                                       ),
                                       SizedBox(
-                                        width: 320,
+                                        width: controlwidth,
                                         height: 80,
                                         child: TextFormField(
                                             decoration: InputDecoration(
@@ -978,7 +1010,7 @@ class _MyFormDetailsState extends State<MyFormDetails> {
                                     children: <Widget>[
                                       SizedBox(height: 20),
                                       SizedBox(
-                                        width: 650,
+                                        width: singlecontrolwidth,
                                         height: 65,
                                         child: DropdownButtonFormField(
                                           decoration: InputDecoration(
@@ -1075,7 +1107,7 @@ class _MyFormDetailsState extends State<MyFormDetails> {
                                         CrossAxisAlignment.start,
                                     children: <Widget>[
                                       SizedBox(
-                                        width: 320,
+                                        width: controlwidth,
                                         height: 65,
                                         child: TextFormField(
                                             decoration: InputDecoration(
@@ -1106,7 +1138,7 @@ class _MyFormDetailsState extends State<MyFormDetails> {
                                         width: 10,
                                       ),
                                       SizedBox(
-                                        width: 320,
+                                        width: controlwidth,
                                         height: 80,
                                         child: TextFormField(
                                             decoration: InputDecoration(
@@ -1141,7 +1173,7 @@ class _MyFormDetailsState extends State<MyFormDetails> {
                                     children: <Widget>[
                                       SizedBox(height: 20),
                                       SizedBox(
-                                        width: 650,
+                                        width: singlecontrolwidth,
                                         height: 65,
                                         child: TextFormField(
                                             decoration: InputDecoration(
@@ -1188,7 +1220,7 @@ class _MyFormDetailsState extends State<MyFormDetails> {
                                     children: <Widget>[
                                       SizedBox(height: 20),
                                       SizedBox(
-                                        width: 320,
+                                        width: controlwidth,
                                         height: 65,
                                         child: DropdownButtonFormField(
                                           decoration: InputDecoration(
@@ -1236,7 +1268,7 @@ class _MyFormDetailsState extends State<MyFormDetails> {
                                         width: 10,
                                       ),
                                       SizedBox(
-                                        width: 320,
+                                        width: controlwidth,
                                         height: 65,
                                         child: DropdownButtonFormField(
                                           decoration: InputDecoration(
@@ -1289,7 +1321,7 @@ class _MyFormDetailsState extends State<MyFormDetails> {
                                     children: <Widget>[
                                       SizedBox(height: 20),
                                       SizedBox(
-                                        width: 320,
+                                        width: controlwidth,
                                         height: 65,
                                         child: DropdownButtonFormField(
                                           decoration: InputDecoration(
@@ -1337,7 +1369,7 @@ class _MyFormDetailsState extends State<MyFormDetails> {
                                         width: 10,
                                       ),
                                       SizedBox(
-                                        width: 320,
+                                        width: controlwidth,
                                         height: 80,
                                         child: TextFormField(
                                             decoration: InputDecoration(
@@ -1371,7 +1403,7 @@ class _MyFormDetailsState extends State<MyFormDetails> {
                                         CrossAxisAlignment.start,
                                     children: <Widget>[
                                       SizedBox(
-                                        width: 320,
+                                        width: controlwidth,
                                         height: 65,
                                         child: TextFormField(
                                             decoration: InputDecoration(
@@ -1401,7 +1433,7 @@ class _MyFormDetailsState extends State<MyFormDetails> {
                                         width: 10,
                                       ),
                                       SizedBox(
-                                        width: 320,
+                                        width: controlwidth,
                                         height: 80,
                                         child: TextFormField(
                                             decoration: InputDecoration(
@@ -1436,7 +1468,7 @@ class _MyFormDetailsState extends State<MyFormDetails> {
                                     children: <Widget>[
                                       SizedBox(height: 20),
                                       SizedBox(
-                                        width: 320,
+                                        width: controlwidth,
                                         height: 65,
                                         child: TextFormField(
                                             decoration: InputDecoration(
@@ -1481,7 +1513,7 @@ class _MyFormDetailsState extends State<MyFormDetails> {
                                     children: <Widget>[
                                       SizedBox(height: 20),
                                       SizedBox(
-                                        width: 320,
+                                        width: controlwidth,
                                         height: 65,
                                         child: DropdownButtonFormField(
                                           decoration: InputDecoration(
@@ -1529,7 +1561,7 @@ class _MyFormDetailsState extends State<MyFormDetails> {
                                         width: 10,
                                       ),
                                       SizedBox(
-                                        width: 320,
+                                        width: controlwidth,
                                         height: 80,
                                         child: TextFormField(
                                             decoration: InputDecoration(
@@ -1563,7 +1595,7 @@ class _MyFormDetailsState extends State<MyFormDetails> {
                                         CrossAxisAlignment.start,
                                     children: <Widget>[
                                       SizedBox(
-                                        width: 320,
+                                        width: controlwidth,
                                         height: 65,
                                         child: TextFormField(
                                             decoration: InputDecoration(
@@ -1593,7 +1625,7 @@ class _MyFormDetailsState extends State<MyFormDetails> {
                                         width: 10,
                                       ),
                                       SizedBox(
-                                        width: 320,
+                                        width: controlwidth,
                                         height: 80,
                                         child: TextFormField(
                                             decoration: InputDecoration(
@@ -1632,114 +1664,8 @@ class _MyFormDetailsState extends State<MyFormDetails> {
                 ),
               ),
             ),
-            Column(
-              children: <Widget>[
-                Container(
-                  width: 290,
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.circular(5),
-                    boxShadow: [BoxShadow(color: Colors.black26)],
-                  ),
-                  child: ClipRRect(
-                    borderRadius: BorderRadius.circular(5),
-                    child: Container(
-                      padding: EdgeInsets.all(15),
-                      child: ListView(
-                        shrinkWrap: true,
-                        scrollDirection: Axis.vertical,
-                        children: <Widget>[
-                          Text('Sponsor/Submitter'),
-                        ],
-                      ),
-                    ),
-                  ),
-                ),
-                Container(
-                  width: 290,
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.circular(5),
-                    boxShadow: [BoxShadow(color: Colors.black26)],
-                  ),
-                  child: ClipRRect(
-                    borderRadius: BorderRadius.circular(5),
-                    child: Container(
-                      padding: EdgeInsets.all(15),
-                      child: ListView(
-                        shrinkWrap: true,
-                        scrollDirection: Axis.vertical,
-                        children: <Widget>[
-                          Text('Visit Details'),
-                        ],
-                      ),
-                    ),
-                  ),
-                ),
-                Container(
-                  width: 290,
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.circular(5),
-                    boxShadow: [BoxShadow(color: Colors.black26)],
-                  ),
-                  child: ClipRRect(
-                    borderRadius: BorderRadius.circular(5),
-                    child: Container(
-                      padding: EdgeInsets.all(15),
-                      child: ListView(
-                        shrinkWrap: true,
-                        scrollDirection: Axis.vertical,
-                        children: <Widget>[
-                          Text('Passport Details'),
-                        ],
-                      ),
-                    ),
-                  ),
-                ),
-                Container(
-                  width: 290,
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.circular(5),
-                    boxShadow: [BoxShadow(color: Colors.black26)],
-                  ),
-                  child: ClipRRect(
-                    borderRadius: BorderRadius.circular(5),
-                    child: Container(
-                      padding: EdgeInsets.all(15),
-                      child: ListView(
-                        shrinkWrap: true,
-                        scrollDirection: Axis.vertical,
-                        children: <Widget>[
-                          Text('Applicant Details'),
-                        ],
-                      ),
-                    ),
-                  ),
-                ),
-                Container(
-                  width: 290,
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.circular(5),
-                    boxShadow: [BoxShadow(color: Colors.black26)],
-                  ),
-                  child: ClipRRect(
-                    borderRadius: BorderRadius.circular(5),
-                    child: Container(
-                      padding: EdgeInsets.all(15),
-                      child: ListView(
-                        shrinkWrap: true,
-                        scrollDirection: Axis.vertical,
-                        children: <Widget>[
-                          Text('Contact Details'),
-                        ],
-                      ),
-                    ),
-                  ),
-                ),
-              ],
+            ScreenTypeLayout(
+              desktop: SectionTitles(),
             ),
           ]);
     });
