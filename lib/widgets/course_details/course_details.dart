@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 import 'package:responsive_builder/responsive_builder.dart';
-import 'package:flutter/cupertino.dart';
 
 class CourseDetails extends StatelessWidget {
-  //final GlobalKey<FormBuilderState> _fbKey = GlobalKey<FormBuilderState>();
   const CourseDetails({Key key}) : super(key: key);
 
   @override
@@ -37,7 +35,7 @@ class CourseDetails extends StatelessWidget {
               SizedBox(
                 height: 30,
               ),
-              FormDetails(),
+              MyCourseDetails(),
               //MyHomePage(),
             ],
           ),
@@ -47,15 +45,15 @@ class CourseDetails extends StatelessWidget {
   }
 }
 
-class FormDetails extends StatefulWidget {
+class MyCourseDetails extends StatefulWidget {
   @override
   //State<StatefulWidget> createState() => _ExampleState();
-  _FormDetailsState createState() {
-    return _FormDetailsState();
+  _MyCourseDetailsState createState() {
+    return _MyCourseDetailsState();
   }
 }
 
-class _FormDetailsState extends State<FormDetails> {
+class _MyCourseDetailsState extends State<MyCourseDetails> {
 //  List<String> _locations = ['Please choose a location', 'A', 'B', 'C', 'D']; // Option 1
 //  String _selectedLocation = 'Please choose a location'; // Option 1
   List<String> _purpose = ['Cruise Ships', 'Tourism']; // Option 2
