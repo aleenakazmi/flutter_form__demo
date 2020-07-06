@@ -4,7 +4,7 @@ import 'package:flutter/painting.dart';
 import 'package:responsive_builder/responsive_builder.dart';
 import 'package:the_basics/constants/app_colors.dart';
 import 'package:the_basics/widgets/call_to_action/call_to_action.dart';
-import 'package:the_basics/widgets/form_details/Section_Titles.dart';
+import 'package:the_basics/widgets/form_details/section_titles.dart';
 
 class MyFormDetails extends StatefulWidget {
   @override
@@ -81,11 +81,11 @@ class _MyFormDetailsState extends State<MyFormDetails> {
               width: screenWidth,
               decoration: BoxDecoration(
                 color: Colors.white,
-                borderRadius: BorderRadius.circular(10),
+                borderRadius: BorderRadius.circular(5),
                 boxShadow: [BoxShadow(color: Colors.black26)],
               ),
               child: ClipRRect(
-                borderRadius: BorderRadius.circular(10),
+                borderRadius: BorderRadius.circular(5),
                 child: Container(
                   padding: EdgeInsets.all(5),
                   child: ListView(
@@ -95,6 +95,11 @@ class _MyFormDetailsState extends State<MyFormDetails> {
                       Theme(
                         data: theme,
                         child: ExpansionTile(
+                          trailing: Icon(
+                              Icons.check_circle,
+                              size: 20.0,
+                            color: Colors.green,
+                          ),
                           initiallyExpanded: true,
                           title: Text(
                             'Sponsor/Submitter',
@@ -171,6 +176,11 @@ class _MyFormDetailsState extends State<MyFormDetails> {
                       Theme(
                         data: theme,
                         child: ExpansionTile(
+                          trailing: Icon(
+                            Icons.error,
+                            size: 20.0,
+                            color: Colors.red,
+                          ),
                           initiallyExpanded: true,
                           title: Text(
                             'Visit Details',
@@ -352,6 +362,11 @@ class _MyFormDetailsState extends State<MyFormDetails> {
                       Theme(
                         data: theme,
                         child: ExpansionTile(
+                          trailing: Icon(
+                            Icons.error,
+                            size: 20.0,
+                            color: Colors.red,
+                          ),
                           initiallyExpanded: true,
                           title: Text(
                             'Passport Details',
@@ -625,6 +640,11 @@ class _MyFormDetailsState extends State<MyFormDetails> {
                       Theme(
                         data: theme,
                         child: ExpansionTile(
+                          trailing: Icon(
+                            Icons.error,
+                            size: 20.0,
+                            color: Colors.red,
+                          ),
                           initiallyExpanded: true,
                           title: Text(
                             'Applicant Details',
@@ -1070,6 +1090,11 @@ class _MyFormDetailsState extends State<MyFormDetails> {
                       Theme(
                         data: theme,
                         child: ExpansionTile(
+                          trailing: Icon(
+                            Icons.error,
+                            size: 20.0,
+                            color: Colors.red,
+                          ),
                           initiallyExpanded: true,
                           title: Text(
                             'Contact Details',
@@ -1665,7 +1690,7 @@ class _MyFormDetailsState extends State<MyFormDetails> {
               ),
             ),
             ScreenTypeLayout(
-              desktop: SectionTitles(),
+              desktop: sectiontitles(),
             ),
           ]);
     });

@@ -22,30 +22,34 @@ class FormDetails extends StatelessWidget {
             sizingInformation.deviceScreenType == DeviceScreenType.mobile
                 ? 35
                 : 60;
+        double tilewidth =
+        sizingInformation.deviceScreenType == DeviceScreenType.mobile
+            ? 150
+            : 300;
         int segmentedControlGroupValue = 0;
-        final Map<int, Widget> myTabs = const <int, Widget>{
-          0: Padding(
-            padding: EdgeInsets.symmetric(horizontal: 40, vertical: 6),
-            child: Text(
-              "Application Details",
-              style: TextStyle(fontSize: 14, color: textColor),
-            ),
-          ),
-          1: Padding(
-            padding: EdgeInsets.symmetric(horizontal: 40, vertical: 6),
-            child: Text(
-              "Documents",
-              style: TextStyle(fontSize: 14),
-            ),
-          ),
-          2: Padding(
-            padding: EdgeInsets.symmetric(horizontal: 40, vertical: 6),
-            child: Text(
-              "Fees & Payments",
-              style: TextStyle(fontSize: 14),
-            ),
-          ),
-        };
+//        final Map<int, Widget> myTabs = const <int, Widget>{
+//          0: Padding(
+//            padding: EdgeInsets.symmetric(horizontal: 40, vertical: 6),
+//            child: Text(
+//              "Application Details",
+//              style: TextStyle(fontSize: 14, color: textColor),
+//            ),
+//          ),
+//          1: Padding(
+//            padding: EdgeInsets.symmetric(horizontal: 40, vertical: 6),
+//            child: Text(
+//              "Documents",
+//              style: TextStyle(fontSize: 14),
+//            ),
+//          ),
+//          2: Padding(
+//            padding: EdgeInsets.symmetric(horizontal: 40, vertical: 6),
+//            child: Text(
+//              "Fees & Payments",
+//              style: TextStyle(fontSize: 14),
+//            ),
+//          ),
+//        };
 
         return SingleChildScrollView(
           child: Column(
@@ -83,11 +87,49 @@ class FormDetails extends StatelessWidget {
                 height: 15,
               ),
               Center(
-                child: CupertinoSlidingSegmentedControl(
-                  groupValue: segmentedControlGroupValue,
-                  children: myTabs,
-                  onValueChanged: (i) {},
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  mainAxisSize: MainAxisSize.min,
+                  children: <Widget>[
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      mainAxisSize: MainAxisSize.min,
+                      children: <Widget>[
+                        MyBullet(textColor),
+                        Container(
+                              height: 1, width: tilewidth, color: Colors.black38),
+                        MyBullet(Colors.white),
+                        Container(
+                            height: 1, width: tilewidth, color: Colors.black38),
+                        MyBullet(Colors.white),
+                      ],
+                    ),
+                    SizedBox(height: 7),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      mainAxisSize: MainAxisSize.max,
+                      children: <Widget>[
+                        Text(
+                          "Application Details",
+                          style: TextStyle(fontSize: 14, color: Colors.black),
+                        ),
+                        Text(
+                          "Documents",
+                          style: TextStyle(fontSize: 14, color: Colors.black),
+                        ),
+                        Text(
+                          "Fees & Payments",
+                          style: TextStyle(fontSize: 14,  color: Colors.black),
+                        ),
+                      ],
+                    )
+                  ],
                 ),
+//                child: CupertinoSlidingSegmentedControl(
+//                  groupValue: segmentedControlGroupValue,
+//                  children: myTabs,
+//                  onValueChanged: (i) {},
+//                ),
               ),
               SizedBox(
                 height: 15,
@@ -196,4 +238,23 @@ class FormDetails extends StatelessWidget {
   }
 
   void setState(Null Function() param0) {}
+}
+
+class MyBullet extends StatelessWidget {
+  final Color colors;
+
+  const MyBullet(this.colors, {Key key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return new Container(
+      height: 15.0,
+      width: 15.0,
+      decoration: new BoxDecoration(
+        color: colors,
+        shape: BoxShape.circle,
+        border: Border.all(color: Colors.grey, width: 0.5),
+      ),
+    );
+  }
 }

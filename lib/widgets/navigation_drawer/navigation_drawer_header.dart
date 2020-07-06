@@ -13,7 +13,7 @@ class NavigationDrawerHeader extends StatelessWidget {
         alignment: FractionalOffset.center);
     return Container(
       height: 150,
-      color: Color(0xffefebe9),
+      color: bodyColor,
       alignment: Alignment.center,
       child: Column(
         mainAxisSize: MainAxisSize.min,

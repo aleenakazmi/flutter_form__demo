@@ -35,7 +35,7 @@ class LayoutTemplate extends StatelessWidget {
           builder: (context, constraints) {
             return AnimatedContainer(
               duration: Duration(milliseconds: 500),
-              color: Color(0xffefebe9),
+              color: bodyColor,
               padding: constraints.maxWidth < 500
                   ? EdgeInsets.zero
                   : EdgeInsets.all(10.0),
@@ -47,7 +47,7 @@ class LayoutTemplate extends StatelessWidget {
                     maxWidth: 1000,
                   ),
                   decoration: BoxDecoration(
-                    color: Color(0xffefebe9),//Color(0xffefebe9),//Color(0xb3ffffff)
+                    color: bodyColor,//Color(0xffefebe9),//Color(0xb3ffffff)
                     borderRadius: BorderRadius.circular(5.0),
                   ),
                   child: Column(

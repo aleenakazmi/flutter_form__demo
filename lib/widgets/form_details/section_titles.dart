@@ -7,8 +7,8 @@ import 'package:the_basics/constants/app_colors.dart';
 
 import 'application_details.dart';
 
-class SectionTitles extends StatelessWidget {
-  const SectionTitles({Key key}) : super(key: key);
+class sectiontitles extends StatelessWidget {
+  const sectiontitles({Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -54,18 +54,20 @@ class SectionTitles extends StatelessWidget {
                 width: 290,
                 decoration: BoxDecoration(
                   color: Colors.white,
-                  borderRadius: BorderRadius.circular(5),
+                  borderRadius: BorderRadius.circular(2),
                   boxShadow: [BoxShadow(color: Colors.black26)],
                 ),
                 child: ClipRRect(
-                  borderRadius: BorderRadius.circular(5),
+                  borderRadius: BorderRadius.circular(2),
                   child: Container(
                     padding: EdgeInsets.all(15),
                     child: ListView(
                       shrinkWrap: true,
                       scrollDirection: Axis.vertical,
                       children: <Widget>[
-                        Text('Sponsor/Submitter'),
+                        Text('Sponsor/Submitter',
+                            style: TextStyle(color: textColor, fontWeight: FontWeight.w600)
+                        ),
                       ],
                     ),
                   ),
@@ -74,12 +76,12 @@ class SectionTitles extends StatelessWidget {
               Container(
                 width: 290,
                 decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.circular(5),
+                  color: bodyColor,
+                  borderRadius: BorderRadius.circular(1),
                   boxShadow: [BoxShadow(color: Colors.black26)],
                 ),
                 child: ClipRRect(
-                  borderRadius: BorderRadius.circular(5),
+                  borderRadius: BorderRadius.circular(1),
                   child: Container(
                     padding: EdgeInsets.all(15),
                     child: ListView(
@@ -95,12 +97,12 @@ class SectionTitles extends StatelessWidget {
               Container(
                 width: 290,
                 decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.circular(5),
+                  color: bodyColor,
+                  borderRadius: BorderRadius.circular(1),
                   boxShadow: [BoxShadow(color: Colors.black26)],
                 ),
                 child: ClipRRect(
-                  borderRadius: BorderRadius.circular(5),
+                  borderRadius: BorderRadius.circular(1),
                   child: Container(
                     padding: EdgeInsets.all(15),
                     child: ListView(
@@ -116,12 +118,12 @@ class SectionTitles extends StatelessWidget {
               Container(
                 width: 290,
                 decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.circular(5),
+                  color: bodyColor,
+                  borderRadius: BorderRadius.circular(1),
                   boxShadow: [BoxShadow(color: Colors.black26)],
                 ),
                 child: ClipRRect(
-                  borderRadius: BorderRadius.circular(5),
+                  borderRadius: BorderRadius.circular(1),
                   child: Container(
                     padding: EdgeInsets.all(15),
                     child: ListView(
@@ -137,12 +139,12 @@ class SectionTitles extends StatelessWidget {
               Container(
                 width: 290,
                 decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.circular(5),
+                  color: bodyColor,
+                  borderRadius: BorderRadius.circular(1),
                   boxShadow: [BoxShadow(color: Colors.black26)],
                 ),
                 child: ClipRRect(
-                  borderRadius: BorderRadius.circular(5),
+                  borderRadius: BorderRadius.circular(1),
                   child: Container(
                     padding: EdgeInsets.all(15),
                     child: ListView(

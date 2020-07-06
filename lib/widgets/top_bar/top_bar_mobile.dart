@@ -19,6 +19,7 @@ class TopBarMobile extends StatelessWidget implements PreferredSizeWidget {
         alignment: FractionalOffset.center);
     return AppBar(
       textTheme: Theme.of(context).textTheme.apply(fontFamily: 'Open Sans'),
+      iconTheme: new IconThemeData(color: textColor),
       backgroundColor: Colors.white,
       title: Row(
         mainAxisSize: MainAxisSize.max,

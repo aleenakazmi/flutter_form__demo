@@ -15,6 +15,8 @@ class HomeContentMobile extends StatelessWidget {
       isAlwaysShown: false, // <---- Required
       child: SingleChildScrollView(
         child: Column(
+          mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
             FormDetails(),
             //CourseDetails(),
