@@ -14,10 +14,12 @@ class BottomBar extends StatelessWidget {
         notchMargin: 3.0,
         child: Container(
           height: 60,
+//          padding: EdgeInsets.only(top: 20),
           child: Row(
             mainAxisSize: MainAxisSize.max,
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: <Widget>[
+//              SizedBox(width: 250),
               FlatButton(
                 child: Text(
                   'Close',
@@ -30,6 +32,7 @@ class BottomBar extends StatelessWidget {
                 hoverColor: Colors.white,
                 onPressed: () {},
               ),
+//              SizedBox(width: 580),
               OutlineButton(
                 borderSide: BorderSide(
                     color: textColor, style: BorderStyle.solid, width: 1),
@@ -40,6 +43,7 @@ class BottomBar extends StatelessWidget {
                 textColor: textColor,
                 onPressed: () {},
               ),
+//              SizedBox(width: 20),
               RaisedButton(
                 child: Text('Continue'),
                 textColor: Colors.white,
@@ -47,6 +51,7 @@ class BottomBar extends StatelessWidget {
                 onPressed: () {},
                 shape: StadiumBorder(),
               ),
+//              SizedBox(width: 20),
               RaisedButton.icon(
                 icon: Text('Actions'),
                 label: Icon(Icons.arrow_drop_up),

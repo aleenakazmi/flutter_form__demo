@@ -10,19 +10,23 @@ class HomeContentDesktop extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scrollbar(
-      controller: ScrollController(), // <---- Here, the controller
-      isAlwaysShown: false, // <---- Required
-      child: SingleChildScrollView(
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: <Widget>[
-            FormDetails(),
-            //CourseDetails(),
-          ],
+    return Container(
+      child: Scrollbar(
+        controller: ScrollController(), // <---- Here, the controller
+        isAlwaysShown: false, // <---- Required
+        child: SingleChildScrollView(
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+              FormDetails(),
+              //CourseDetails(),
+            ],
+          ),
         ),
       ),
     );
   }
+
+  void setState(Null Function() param0) {}
 }
