@@ -53,9 +53,14 @@ class _MyFormDetailsState extends State<MyFormDetails> {
               ? 16
               : 21;
 
+      double textSize =
+      sizingInformation.deviceScreenType == DeviceScreenType.mobile
+          ? 14
+          : 16;
+
       double screenWidth =
           sizingInformation.deviceScreenType == DeviceScreenType.mobile
-              ? 420
+              ? 400
               : 700;
 
       double controlwidth =
@@ -75,723 +80,779 @@ class _MyFormDetailsState extends State<MyFormDetails> {
 
       final theme = Theme.of(context).copyWith(dividerColor: Colors.white);
       return SingleChildScrollView(
-          child: Column(
+        child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisSize: MainAxisSize.max,
           children: <Widget>[
             Row(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        mainAxisSize: MainAxisSize.max,
-        children: <Widget>[
-          Container(
-            width: screenWidth,
-            decoration: BoxDecoration(
-              color: Colors.white,
-              borderRadius: BorderRadius.circular(5),
-              boxShadow: [BoxShadow(color: Colors.black26)],
-            ),
-            child: ClipRRect(
-              borderRadius: BorderRadius.circular(5),
-              child: Container(
-                padding: EdgeInsets.all(5),
-                child: Column(
-                  children: <Widget>[
-                    Theme(
-                      data: theme,
-                      child: ExpansionTile(
-                        trailing: Icon(
-                          Icons.check_circle,
-                          size: 20.0,
-                          color: Colors.green,
-                        ),
-                        initiallyExpanded: true,
-                        title: Text(
-                          'Sponsor/Submitter',
-                          style: TextStyle(
-                            fontSize: descriptionSize,
-                            fontWeight: FontWeight.bold,
-                            color: textColor,
-                          ),
-                          textAlign: textAlignment,
-                        ),
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisSize: MainAxisSize.max,
+              children: <Widget>[
+                Container(
+                  width: screenWidth,
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(5),
+                    boxShadow: [BoxShadow(color: Colors.black26)],
+                  ),
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(5),
+                    child: Container(
+                      padding: EdgeInsets.all(5),
+                      child: Column(
                         children: <Widget>[
-                          Container(
-                            padding:
-                                const EdgeInsets.symmetric(horizontal: 17.0),
-                            alignment: Alignment.topLeft,
-                            child: Column(
-                              mainAxisSize: MainAxisSize.min,
-                              crossAxisAlignment: CrossAxisAlignment.start,
+                          Theme(
+                            data: theme,
+                            child: ExpansionTile(
+                              trailing: Icon(
+                                Icons.check_circle,
+                                size: 20.0,
+                                color: Colors.green,
+                              ),
+                              initiallyExpanded: true,
+                              title: Text(
+                                'Sponsor/Submitter',
+                                style: TextStyle(
+                                  fontSize: descriptionSize,
+                                  fontWeight: FontWeight.bold,
+                                  color: textColor,
+                                ),
+                                textAlign: textAlignment,
+                              ),
                               children: <Widget>[
-                                SizedBox(height: 20),
-                                Text(
-                                  'Establishment Name',
-                                  //\nRoads And Transport Authority',
-                                  style: TextStyle(
-                                    fontSize: 13,
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                                  textAlign: TextAlign.left,
-                                ),
-                                SizedBox(height: 7),
-                                Text(
-                                  'Roads And Transport Authority',
-                                  style: TextStyle(
-                                    fontSize: 17,
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                                  textAlign: textAlignment,
-                                ),
-                                SizedBox(height: 20),
-                                Text(
-                                  'Client Reference No.',
-                                  //\nRoads And Transport Authority',
-                                  style: TextStyle(
-                                    fontSize: 13,
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                                  textAlign: TextAlign.left,
-                                ),
-                                SizedBox(height: 7),
-                                SizedBox(
-                                  width: singlecontrolwidth,
-                                  height: 40,
-                                  child: TextFormField(
-                                      decoration: InputDecoration(
-                                    //labelText: "Client Reference No.",
-                                    fillColor: Colors.white,
-                                    contentPadding: const EdgeInsets.all(6.0),
-                                    enabledBorder: OutlineInputBorder(
-                                      borderRadius: BorderRadius.circular(5.0),
-                                      borderSide: BorderSide(
-                                        color: Colors.black38,
-                                        width: 0.5,
+                                Container(
+                                  padding: const EdgeInsets.symmetric(
+                                      horizontal: 17.0),
+                                  alignment: Alignment.topLeft,
+                                  child: Column(
+                                    mainAxisSize: MainAxisSize.min,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: <Widget>[
+                                      SizedBox(height: 20),
+                                      Text(
+                                        'Establishment Name',
+                                        //\nRoads And Transport Authority',
+                                        style: TextStyle(
+                                          fontSize: 13,
+                                          fontWeight: FontWeight.w500,
+                                        ),
+                                        textAlign: TextAlign.left,
                                       ),
-                                    ),
-                                    focusedBorder: OutlineInputBorder(
-                                      borderRadius: BorderRadius.circular(5.0),
-                                      borderSide: BorderSide(
-                                        color: Colors.black38,
-                                        width: 0.5,
+                                      SizedBox(height: 7),
+                                      Text(
+                                        'Roads And Transport Authority',
+                                        style: TextStyle(
+                                          fontSize: textSize,
+                                          fontWeight: FontWeight.w500,
+                                        ),
+                                        textAlign: textAlignment,
                                       ),
-                                    ),
-                                  )),
+                                      SizedBox(height: 20),
+                                      Text(
+                                        'Client Reference No.',
+                                        //\nRoads And Transport Authority',
+                                        style: TextStyle(
+                                          fontSize: 13,
+                                          fontWeight: FontWeight.w500,
+                                        ),
+                                        textAlign: TextAlign.left,
+                                      ),
+                                      SizedBox(height: 7),
+                                      SizedBox(
+                                        width: singlecontrolwidth,
+                                        height: 40,
+                                        child: TextFormField(
+                                            decoration: InputDecoration(
+                                          //labelText: "Client Reference No.",
+                                          fillColor: Colors.white,
+                                          contentPadding:
+                                              const EdgeInsets.all(6.0),
+                                          enabledBorder: OutlineInputBorder(
+                                            borderRadius:
+                                                BorderRadius.circular(5.0),
+                                            borderSide: BorderSide(
+                                              color: Colors.black38,
+                                              width: 0.5,
+                                            ),
+                                          ),
+                                          focusedBorder: OutlineInputBorder(
+                                            borderRadius:
+                                                BorderRadius.circular(5.0),
+                                            borderSide: BorderSide(
+                                              color: Colors.black38,
+                                              width: 0.5,
+                                            ),
+                                          ),
+                                        )),
+                                      ),
+                                    ],
+                                  ),
                                 ),
                               ],
                             ),
                           ),
-                        ],
-                      ),
-                    ),
-                    Padding(
-                      padding: EdgeInsets.only(top: 25),
-                      child: Container(
-                          height: 1, width: 700.0, color: Colors.black38),
-                    ),
-                    Theme(
-                      data: theme,
-                      child: ExpansionTile(
-                        trailing: Icon(
-                          Icons.error,
-                          size: 20.0,
-                          color: Colors.red,
-                        ),
-                        initiallyExpanded: true,
-                        title: Text(
-                          'Visit Details',
-                          style: TextStyle(
-                            fontSize: descriptionSize,
-                            height: 3,
-                            fontWeight: FontWeight.bold,
-                            color: textColor,
+                          Padding(
+                            padding: EdgeInsets.only(top: 25),
+                            child: Container(
+                                height: 1, width: 700.0, color: Colors.black38),
                           ),
-                          textAlign: textAlignment,
-                        ),
-                        children: <Widget>[
-                          Container(
-                            padding:
-                                const EdgeInsets.symmetric(horizontal: 17.0),
-                            alignment: Alignment.topLeft,
-                            child: Column(
-                              mainAxisSize: MainAxisSize.min,
-                              crossAxisAlignment: CrossAxisAlignment.start,
+                          Theme(
+                            data: theme,
+                            child: ExpansionTile(
+                              trailing: Icon(
+                                Icons.error,
+                                size: 20.0,
+                                color: Colors.red,
+                              ),
+                              initiallyExpanded: true,
+                              title: Text(
+                                'Visit Details',
+                                style: TextStyle(
+                                  fontSize: descriptionSize,
+                                  height: 3,
+                                  fontWeight: FontWeight.bold,
+                                  color: textColor,
+                                ),
+                                textAlign: textAlignment,
+                              ),
+                              children: <Widget>[
+                                Container(
+                                  padding: const EdgeInsets.symmetric(
+                                      horizontal: 17.0),
+                                  alignment: Alignment.topLeft,
+                                  child: Column(
+                                    mainAxisSize: MainAxisSize.min,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: <Widget>[
+                                      SizedBox(height: 15),
+                                      dropdown('Visit Purpose',
+                                          singlecontrolwidth, _purpose),
+                                      SizedBox(height: 20),
+                                      Row(
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        mainAxisSize: MainAxisSize.min,
+                                        children: <Widget>[
+                                          dropdown('Duration', controlwidth,
+                                              _duration),
+                                          SizedBox(
+                                            width: 10,
+                                          ),
+                                          dropdown(
+                                              'Entry', controlwidth, _entry),
+                                        ],
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                          Padding(
+                            padding: EdgeInsets.only(top: 25),
+                            child: Container(
+                                height: 1.0,
+                                width: 700.0,
+                                color: Colors.black38),
+                          ),
+                          Theme(
+                            data: theme,
+                            child: ExpansionTile(
+                              trailing: Icon(
+                                Icons.error,
+                                size: 20.0,
+                                color: Colors.red,
+                              ),
+                              initiallyExpanded: true,
+                              title: Text(
+                                'Passport Details',
+                                style: TextStyle(
+                                  fontSize: descriptionSize,
+                                  height: 3,
+                                  fontWeight: FontWeight.bold,
+                                  color: textColor,
+                                ),
+                                textAlign: textAlignment,
+                              ),
+                              children: <Widget>[
+                                SizedBox(height: 10),
+                                Container(
+                                  padding: const EdgeInsets.symmetric(
+                                      horizontal: 17.0),
+                                  alignment: Alignment.topLeft,
+                                  child: Column(
+                                    mainAxisSize: MainAxisSize.min,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: <Widget>[
+                                      Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.start,
+                                        mainAxisSize: MainAxisSize.min,
+                                        children: <Widget>[
+                                          Radio(
+                                            value: Passport.Search,
+                                            groupValue: _radioValue1,
+                                            onChanged: (value) {
+                                              setState(() {
+                                                _radioValue1 = value;
+                                              });
+                                            },
+                                            activeColor: textColor,
+                                          ),
+                                          Text(
+                                            'Search Passport Data',
+                                            style:
+                                                new TextStyle(fontSize: textSize),
+                                          ),
+                                          SizedBox(width: radiocontrolwidth),
+                                          Radio(
+                                            value: Passport.Scan,
+                                            groupValue: _radioValue1,
+                                            onChanged: (value) {
+                                              setState(() {
+                                                _radioValue1 = value;
+                                              });
+                                            },
+                                            activeColor: textColor,
+                                          ),
+                                          Text(
+                                            'Scan Passport',
+                                            style: new TextStyle(
+                                              fontSize: textSize,
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                      SizedBox(height: 20),
+                                      Row(
+                                        mainAxisSize: MainAxisSize.min,
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        children: <Widget>[
+                                          dropdown('Passport Type',
+                                              controlwidth, _type),
+                                          SizedBox(
+                                            width: 10,
+                                          ),
+                                          textfield(
+                                              'Passport Number', controlwidth),
+                                        ],
+                                      ),
+                                      SizedBox(height: 20),
+                                      Row(
+                                        mainAxisSize: MainAxisSize.min,
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        children: <Widget>[
+                                          dropdown('Current Nationality',
+                                              controlwidth, _nationality),
+                                          SizedBox(
+                                            width: 10,
+                                          ),
+                                          dropdown('Previous Nationality',
+                                              controlwidth, _nationality),
+                                        ],
+                                      ),
+                                      SizedBox(
+                                        width: 20,
+                                        height: 25,
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                                Container(
+                                  padding: const EdgeInsets.symmetric(
+                                      horizontal: 17.0),
+                                  alignment: Alignment.topRight,
+                                  child: RaisedButton(
+                                    child: Text('Search Data'),
+                                    textColor: Colors.white,
+                                    color: textColor,
+                                    onPressed: () {},
+                                    shape: StadiumBorder(),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                          Padding(
+                            padding: EdgeInsets.only(top: 25),
+                            child: Container(
+                                height: 1.0,
+                                width: 700.0,
+                                color: Colors.black38),
+                          ),
+                          Theme(
+                            data: theme,
+                            child: ExpansionTile(
+                              trailing: Icon(
+                                Icons.error,
+                                size: 20.0,
+                                color: Colors.red,
+                              ),
+                              initiallyExpanded: true,
+                              title: Text(
+                                'Applicant Details',
+                                style: TextStyle(
+                                  fontSize: descriptionSize,
+                                  height: 3,
+                                  fontWeight: FontWeight.bold,
+                                  color: textColor,
+                                ),
+                                textAlign: textAlignment,
+                              ),
+                              children: <Widget>[
+                                SizedBox(height: 10),
+                                Container(
+                                  padding: const EdgeInsets.symmetric(
+                                      horizontal: 17.0),
+                                  alignment: Alignment.topLeft,
+                                  child: Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    mainAxisSize: MainAxisSize.min,
+                                    children: <Widget>[
+                                      CheckboxListTile(
+                                        title: Text('Is Inside UAE'),
+                                        value: _checked,
+                                        controlAffinity:
+                                            ListTileControlAffinity.leading,
+                                        onChanged: (bool value) {
+                                          setState(() {
+                                            _checked = value;
+                                          });
+                                        },
+                                        activeColor: Colors.black45,
+                                        checkColor: textColor,
+                                        contentPadding:
+                                            const EdgeInsets.all(0.1),
+                                      ),
+                                      Text(
+                                        "• It is the responsibility of the sponsor to enter the correct status of the applicant (inside or outside the country).\n• Additional fees will be applied when selecting this option.\n• In the event this information is not entered correctly, GDRFA reserves its rights to take the appropriate actions as per the governing laws.",
+                                        style: TextStyle(
+                                          fontSize: 13,
+                                          height: 1.5,
+                                          fontWeight: FontWeight.w500,
+                                          color: Colors.black,
+                                        ),
+                                        textAlign: textAlignment,
+                                      ),
+                                      SizedBox(height: 20),
+                                      Row(
+                                        mainAxisSize: MainAxisSize.min,
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        children: <Widget>[
+                                          textfield(
+                                              'Mother Name En', controlwidth),
+                                          SizedBox(
+                                            width: 10,
+                                          ),
+                                          textfield(
+                                              'Mother Name Ar', controlwidth),
+                                        ],
+                                      ),
+                                      SizedBox(height: 20),
+                                      Row(
+                                        mainAxisSize: MainAxisSize.min,
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        children: <Widget>[
+                                          SizedBox(height: 20),
+                                          dropdown('Marital Status',
+                                              controlwidth, _nationality),
+                                          SizedBox(
+                                            width: 10,
+                                          ),
+                                          textfield('Relationship with Sponsor',
+                                              controlwidth),
+                                        ],
+                                      ),
+                                      SizedBox(height: 20),
+                                      Row(
+                                        mainAxisSize: MainAxisSize.min,
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        children: <Widget>[
+                                          SizedBox(height: 20),
+                                          dropdown('Religion', controlwidth,
+                                              _nationality),
+                                          SizedBox(
+                                            width: 10,
+                                          ),
+                                          dropdown('Faith', controlwidth,
+                                              _nationality),
+                                        ],
+                                      ),
+                                      SizedBox(height: 20),
+                                      Row(
+                                        mainAxisSize: MainAxisSize.min,
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        children: <Widget>[
+                                          SizedBox(height: 20),
+                                          dropdown('Education', controlwidth,
+                                              _nationality),
+                                          SizedBox(
+                                            width: 10,
+                                          ),
+                                          textfield('Profession', controlwidth),
+                                        ],
+                                      ),
+                                      SizedBox(height: 20),
+                                      Row(
+                                        mainAxisSize: MainAxisSize.min,
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        children: <Widget>[
+                                          SizedBox(height: 20),
+                                          dropdown('First Language',
+                                              singlecontrolwidth, _nationality),
+                                        ],
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                          Padding(
+                            padding: EdgeInsets.only(top: 25),
+                            child: Container(
+                                height: 1.0,
+                                width: 700.0,
+                                color: Colors.black38),
+                          ),
+                          Theme(
+                            data: theme,
+                            child: ExpansionTile(
+                              trailing: Icon(
+                                Icons.error,
+                                size: 20.0,
+                                color: Colors.red,
+                              ),
+                              initiallyExpanded: true,
+                              title: Text(
+                                'Contact Details',
+                                style: TextStyle(
+                                  fontSize: descriptionSize,
+                                  height: 3,
+                                  fontWeight: FontWeight.bold,
+                                  color: textColor,
+                                ),
+                                textAlign: textAlignment,
+                              ),
                               children: <Widget>[
                                 SizedBox(height: 15),
-                                dropdown('Visit Purpose', singlecontrolwidth,
-                                    _purpose),
-                                SizedBox(height: 20),
-                                Row(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  mainAxisSize: MainAxisSize.min,
-                                  children: <Widget>[
-                                    dropdown(
-                                        'Duration', controlwidth, _duration),
-                                    SizedBox(
-                                      width: 10,
-                                    ),
-                                    dropdown('Entry', controlwidth, _entry),
-                                  ],
-                                ),
-                              ],
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                    Padding(
-                      padding: EdgeInsets.only(top: 25),
-                      child: Container(
-                          height: 1.0, width: 700.0, color: Colors.black38),
-                    ),
-                    Theme(
-                      data: theme,
-                      child: ExpansionTile(
-                        trailing: Icon(
-                          Icons.error,
-                          size: 20.0,
-                          color: Colors.red,
-                        ),
-                        initiallyExpanded: true,
-                        title: Text(
-                          'Passport Details',
-                          style: TextStyle(
-                            fontSize: descriptionSize,
-                            height: 3,
-                            fontWeight: FontWeight.bold,
-                            color: textColor,
-                          ),
-                          textAlign: textAlignment,
-                        ),
-                        children: <Widget>[
-                          SizedBox(height: 10),
-                          Container(
-                            padding:
-                                const EdgeInsets.symmetric(horizontal: 17.0),
-                            alignment: Alignment.topLeft,
-                            child: Column(
-                              mainAxisSize: MainAxisSize.min,
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: <Widget>[
-                                Row(
-                                  mainAxisAlignment: MainAxisAlignment.start,
-                                  mainAxisSize: MainAxisSize.min,
-                                  children: <Widget>[
-                                    Radio(
-                                      value: Passport.Search,
-                                      groupValue: _radioValue1,
-                                      onChanged: (value) {
-                                        setState(() {
-                                          _radioValue1 = value;
-                                        });
-                                      },
-                                      activeColor: textColor,
-                                    ),
-                                    Text(
-                                      'Search Passport Data',
-                                      style: new TextStyle(fontSize: 16.0),
-                                    ),
-                                    SizedBox(width: radiocontrolwidth),
-                                    Radio(
-                                      value: Passport.Scan,
-                                      groupValue: _radioValue1,
-                                      onChanged: (value) {
-                                        setState(() {
-                                          _radioValue1 = value;
-                                        });
-                                      },
-                                      activeColor: textColor,
-                                    ),
-                                    Text(
-                                      'Scan Passport',
-                                      style: new TextStyle(
-                                        fontSize: 16.0,
+                                Container(
+                                  padding: const EdgeInsets.symmetric(
+                                      horizontal: 17.0),
+                                  alignment: Alignment.topLeft,
+                                  child: Column(
+                                    mainAxisSize: MainAxisSize.min,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: <Widget>[
+                                      Text(
+                                        'Please provide contacts to receive confirmation and future communication about this application:',
+                                        style: TextStyle(
+                                          fontSize: 13,
+                                          height: 1.5,
+                                          fontWeight: FontWeight.w300,
+                                          color: Colors.black,
+                                        ),
+                                        textAlign: textAlignment,
                                       ),
-                                    ),
-                                  ],
-                                ),
-                                SizedBox(height: 20),
-                                Row(
-                                  mainAxisSize: MainAxisSize.min,
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: <Widget>[
-                                    dropdown(
-                                        'Passport Type', controlwidth, _type),
-                                    SizedBox(
-                                      width: 10,
-                                    ),
-                                    textfield('Passport Number', controlwidth),
-                                  ],
-                                ),
-                                SizedBox(height: 20),
-                                Row(
-                                  mainAxisSize: MainAxisSize.min,
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: <Widget>[
-                                    dropdown('Current Nationality',
-                                        controlwidth, _nationality),
-                                    SizedBox(
-                                      width: 10,
-                                    ),
-                                    dropdown('Previous Nationality',
-                                        controlwidth, _nationality),
-                                  ],
-                                ),
-                                SizedBox(
-                                  width: 20,
-                                  height: 25,
-                                ),
-                              ],
-                            ),
-                          ),
-                          Container(
-                            padding:
-                                const EdgeInsets.symmetric(horizontal: 17.0),
-                            alignment: Alignment.topRight,
-                            child: RaisedButton(
-                              child: Text('Search Data'),
-                              textColor: Colors.white,
-                              color: textColor,
-                              onPressed: () {},
-                              shape: StadiumBorder(),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                    Padding(
-                      padding: EdgeInsets.only(top: 25),
-                      child: Container(
-                          height: 1.0, width: 700.0, color: Colors.black38),
-                    ),
-                    Theme(
-                      data: theme,
-                      child: ExpansionTile(
-                        trailing: Icon(
-                          Icons.error,
-                          size: 20.0,
-                          color: Colors.red,
-                        ),
-                        initiallyExpanded: true,
-                        title: Text(
-                          'Applicant Details',
-                          style: TextStyle(
-                            fontSize: descriptionSize,
-                            height: 3,
-                            fontWeight: FontWeight.bold,
-                            color: textColor,
-                          ),
-                          textAlign: textAlignment,
-                        ),
-                        children: <Widget>[
-                          SizedBox(height: 10),
-                          Container(
-                            padding:
-                                const EdgeInsets.symmetric(horizontal: 17.0),
-                            alignment: Alignment.topLeft,
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              mainAxisSize: MainAxisSize.min,
-                              children: <Widget>[
-                                CheckboxListTile(
-                                  title: Text('Is Inside UAE'),
-                                  value: _checked,
-                                  controlAffinity:
-                                      ListTileControlAffinity.leading,
-                                  onChanged: (bool value) {
-                                    setState(() {
-                                      _checked = value;
-                                    });
-                                  },
-                                  activeColor: Colors.black45,
-                                  checkColor: textColor,
-                                  contentPadding: const EdgeInsets.all(0.1),
-                                ),
-                                Text(
-                                  "• It is the responsibility of the sponsor to enter the correct status of the applicant (inside or outside the country).\n• Additional fees will be applied when selecting this option.\n• In the event this information is not entered correctly, GDRFA reserves its rights to take the appropriate actions as per the governing laws.",
-                                  style: TextStyle(
-                                    fontSize: 13,
-                                    height: 1.5,
-                                    fontWeight: FontWeight.w500,
-                                    color: Colors.black,
+                                      SizedBox(height: 20),
+                                      Row(
+                                        mainAxisSize: MainAxisSize.min,
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        children: <Widget>[
+                                          textfield('Email', controlwidth),
+                                          SizedBox(
+                                            width: 10,
+                                          ),
+                                          textfield(
+                                              'Mobile Number', controlwidth),
+                                        ],
+                                      ),
+                                      SizedBox(height: 20),
+                                      Row(
+                                        mainAxisSize: MainAxisSize.min,
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        children: <Widget>[
+                                          SizedBox(height: 20),
+                                          Column(
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.start,
+                                            children: <Widget>[
+                                              Text(
+                                                'Approval Email Copy Recipient',
+                                                style: TextStyle(
+                                                    fontSize: 13,
+                                                    fontWeight: FontWeight.w500,
+                                                    color: Colors.black
+                                                        .withOpacity(0.8)),
+                                                textAlign: TextAlign.left,
+                                              ),
+                                              SizedBox(height: 7),
+                                              SizedBox(
+                                                width: controlwidth,
+                                                height: 40,
+                                                child: TextFormField(
+                                                    decoration: InputDecoration(
+                                                  fillColor: Colors.white,
+                                                  contentPadding:
+                                                      const EdgeInsets.all(6.0),
+                                                  enabledBorder:
+                                                      OutlineInputBorder(
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            5.0),
+                                                    borderSide: BorderSide(
+                                                      color: Colors.black38,
+                                                      width: 0.5,
+                                                    ),
+                                                  ),
+                                                  focusedBorder:
+                                                      OutlineInputBorder(
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            5.0),
+                                                    borderSide: BorderSide(
+                                                      color: Colors.black38,
+                                                      width: 0.5,
+                                                    ),
+                                                  ),
+                                                )),
+                                              ),
+                                            ],
+                                          ),
+                                        ],
+                                      ),
+                                      Text(
+                                        'Address Inside UAE',
+                                        style: TextStyle(
+                                          fontSize: 15,
+                                          height: 3,
+                                          fontWeight: FontWeight.bold,
+                                          color: textColor,
+                                        ),
+                                        textAlign: textAlignment,
+                                      ),
+                                      SizedBox(height: 10),
+                                      Row(
+                                        mainAxisSize: MainAxisSize.min,
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        children: <Widget>[
+                                          SizedBox(height: 20),
+                                          dropdown('Emirate', controlwidth,
+                                              _nationality),
+                                          SizedBox(
+                                            width: 10,
+                                          ),
+                                          dropdown('City', controlwidth,
+                                              _nationality),
+                                        ],
+                                      ),
+                                      SizedBox(height: 20),
+                                      Row(
+                                        mainAxisSize: MainAxisSize.min,
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        children: <Widget>[
+                                          SizedBox(height: 20),
+                                          dropdown('Area', controlwidth,
+                                              _nationality),
+                                          SizedBox(
+                                            width: 10,
+                                          ),
+                                          textfield('Street', controlwidth),
+                                        ],
+                                      ),
+                                      SizedBox(height: 20),
+                                      Row(
+                                        mainAxisSize: MainAxisSize.min,
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        children: <Widget>[
+                                          textfield('Building', controlwidth),
+                                          SizedBox(
+                                            width: 10,
+                                          ),
+                                          Column(
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.start,
+                                            children: <Widget>[
+                                              Text(
+                                                'Landmark',
+                                                style: TextStyle(
+                                                    fontSize: 13,
+                                                    fontWeight: FontWeight.w500,
+                                                    color: Colors.black
+                                                        .withOpacity(0.8)),
+                                                textAlign: TextAlign.left,
+                                              ),
+                                              SizedBox(height: 7),
+                                              SizedBox(
+                                                width: controlwidth,
+                                                height: 40,
+                                                child: TextFormField(
+                                                    decoration: InputDecoration(
+                                                  fillColor: Colors.white,
+                                                  contentPadding:
+                                                      const EdgeInsets.all(6.0),
+                                                  enabledBorder:
+                                                      OutlineInputBorder(
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            5.0),
+                                                    borderSide: BorderSide(
+                                                      color: Colors.black38,
+                                                      width: 0.5,
+                                                    ),
+                                                  ),
+                                                  focusedBorder:
+                                                      OutlineInputBorder(
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            5.0),
+                                                    borderSide: BorderSide(
+                                                      color: Colors.black38,
+                                                      width: 0.5,
+                                                    ),
+                                                  ),
+                                                )),
+                                              ),
+                                            ],
+                                          ),
+                                        ],
+                                      ),
+                                      SizedBox(height: 20),
+                                      Row(
+                                        mainAxisSize: MainAxisSize.min,
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        children: <Widget>[
+                                          SizedBox(height: 20),
+                                          Column(
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.start,
+                                            children: <Widget>[
+                                              Text(
+                                                'Makani No',
+                                                style: TextStyle(
+                                                    fontSize: 13,
+                                                    fontWeight: FontWeight.w500,
+                                                    color: Colors.black
+                                                        .withOpacity(0.8)),
+                                                textAlign: TextAlign.left,
+                                              ),
+                                              SizedBox(height: 7),
+                                              SizedBox(
+                                                width: controlwidth,
+                                                height: 40,
+                                                child: TextFormField(
+                                                    decoration: InputDecoration(
+                                                  fillColor: Colors.white,
+                                                  contentPadding:
+                                                      const EdgeInsets.all(6.0),
+                                                  enabledBorder:
+                                                      OutlineInputBorder(
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            5.0),
+                                                    borderSide: BorderSide(
+                                                      color: Colors.black38,
+                                                      width: 0.5,
+                                                    ),
+                                                  ),
+                                                  focusedBorder:
+                                                      OutlineInputBorder(
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            5.0),
+                                                    borderSide: BorderSide(
+                                                      color: Colors.black38,
+                                                      width: 0.5,
+                                                    ),
+                                                  ),
+                                                )),
+                                              ),
+                                            ],
+                                          ),
+                                        ],
+                                      ),
+                                      Text(
+                                        'Address Outside UAE',
+                                        style: TextStyle(
+                                          fontSize: 15,
+                                          height: 3,
+                                          fontWeight: FontWeight.bold,
+                                          color: textColor,
+                                        ),
+                                        textAlign: textAlignment,
+                                      ),
+                                      SizedBox(height: 10),
+                                      Row(
+                                        mainAxisSize: MainAxisSize.min,
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        children: <Widget>[
+                                          SizedBox(height: 20),
+                                          dropdown('Country', controlwidth,
+                                              _nationality),
+                                          SizedBox(
+                                            width: 10,
+                                          ),
+                                          textfield(
+                                              'Mobile Number', controlwidth),
+                                        ],
+                                      ),
+                                      SizedBox(height: 20),
+                                      Row(
+                                        mainAxisSize: MainAxisSize.min,
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        children: <Widget>[
+                                          textfield('City', controlwidth),
+                                          SizedBox(
+                                            width: 10,
+                                          ),
+                                          textfield('Address', controlwidth),
+                                        ],
+                                      ),
+                                      SizedBox(height: 20),
+                                    ],
                                   ),
-                                  textAlign: textAlignment,
                                 ),
-                                SizedBox(height: 20),
-                                Row(
-                                  mainAxisSize: MainAxisSize.min,
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: <Widget>[
-                                    textfield('Mother Name En', controlwidth),
-                                    SizedBox(
-                                      width: 10,
-                                    ),
-                                    textfield('Mother Name Ar', controlwidth),
-                                  ],
-                                ),
-                                SizedBox(height: 20),
-                                Row(
-                                  mainAxisSize: MainAxisSize.min,
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: <Widget>[
-                                    SizedBox(height: 20),
-                                    dropdown('Marital Status', controlwidth,
-                                        _nationality),
-                                    SizedBox(
-                                      width: 10,
-                                    ),
-                                    textfield('Relationship with Sponsor',
-                                        controlwidth),
-                                  ],
-                                ),
-                                SizedBox(height: 20),
-                                Row(
-                                  mainAxisSize: MainAxisSize.min,
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: <Widget>[
-                                    SizedBox(height: 20),
-                                    dropdown(
-                                        'Religion', controlwidth, _nationality),
-                                    SizedBox(
-                                      width: 10,
-                                    ),
-                                    dropdown(
-                                        'Faith', controlwidth, _nationality),
-                                  ],
-                                ),
-                                SizedBox(height: 20),
-                                Row(
-                                  mainAxisSize: MainAxisSize.min,
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: <Widget>[
-                                    SizedBox(height: 20),
-                                    dropdown('Education', controlwidth,
-                                        _nationality),
-                                    SizedBox(
-                                      width: 10,
-                                    ),
-                                    textfield('Profession', controlwidth),
-                                  ],
-                                ),
-                                SizedBox(height: 20),
-                                Row(
-                                  mainAxisSize: MainAxisSize.min,
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: <Widget>[
-                                    SizedBox(height: 20),
-                                    dropdown('First Language',
-                                        singlecontrolwidth, _nationality),
-                                  ],
-                                ),
-                              ],
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                    Padding(
-                      padding: EdgeInsets.only(top: 25),
-                      child: Container(
-                          height: 1.0, width: 700.0, color: Colors.black38),
-                    ),
-                    Theme(
-                      data: theme,
-                      child: ExpansionTile(
-                        trailing: Icon(
-                          Icons.error,
-                          size: 20.0,
-                          color: Colors.red,
-                        ),
-                        initiallyExpanded: true,
-                        title: Text(
-                          'Contact Details',
-                          style: TextStyle(
-                            fontSize: descriptionSize,
-                            height: 3,
-                            fontWeight: FontWeight.bold,
-                            color: textColor,
-                          ),
-                          textAlign: textAlignment,
-                        ),
-                        children: <Widget>[
-                          SizedBox(height: 15),
-                          Container(
-                            padding:
-                                const EdgeInsets.symmetric(horizontal: 17.0),
-                            alignment: Alignment.topLeft,
-                            child: Column(
-                              mainAxisSize: MainAxisSize.min,
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: <Widget>[
-                                Text(
-                                  'Please provide contacts to receive confirmation and future communication about this application:',
-                                  style: TextStyle(
-                                    fontSize: 13,
-                                    height: 3,
-                                    fontWeight: FontWeight.w300,
-                                    color: Colors.black,
-                                  ),
-                                  textAlign: textAlignment,
-                                ),
-                                Row(
-                                  mainAxisSize: MainAxisSize.min,
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: <Widget>[
-                                    textfield('Email', controlwidth),
-                                    SizedBox(
-                                      width: 10,
-                                    ),
-                                    textfield('Mobile Number', controlwidth),
-                                  ],
-                                ),
-                                SizedBox(height: 20),
-                                Row(
-                                  mainAxisSize: MainAxisSize.min,
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: <Widget>[
-                                    SizedBox(height: 20),
-                                    Column(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                      children: <Widget>[
-                                        Text(
-                                          'Approval Email Copy Recipient',
-                                          style: TextStyle(
-                                              fontSize: 13,
-                                              fontWeight: FontWeight.w500,
-                                              color: Colors.black
-                                                  .withOpacity(0.8)),
-                                          textAlign: TextAlign.left,
-                                        ),
-                                        SizedBox(height: 7),
-                                        SizedBox(
-                                          width: controlwidth,
-                                          height: 40,
-                                          child: TextFormField(
-                                              decoration: InputDecoration(
-                                            fillColor: Colors.white,
-                                            contentPadding:
-                                                const EdgeInsets.all(6.0),
-                                            enabledBorder: OutlineInputBorder(
-                                              borderRadius:
-                                                  BorderRadius.circular(5.0),
-                                              borderSide: BorderSide(
-                                                color: Colors.black38,
-                                                width: 0.5,
-                                              ),
-                                            ),
-                                            focusedBorder: OutlineInputBorder(
-                                              borderRadius:
-                                                  BorderRadius.circular(5.0),
-                                              borderSide: BorderSide(
-                                                color: Colors.black38,
-                                                width: 0.5,
-                                              ),
-                                            ),
-                                          )),
-                                        ),
-                                      ],
-                                    ),
-                                  ],
-                                ),
-                                Text(
-                                  'Address Inside UAE',
-                                  style: TextStyle(
-                                    fontSize: 15,
-                                    height: 3,
-                                    fontWeight: FontWeight.bold,
-                                    color: textColor,
-                                  ),
-                                  textAlign: textAlignment,
-                                ),
-                                SizedBox(height: 10),
-                                Row(
-                                  mainAxisSize: MainAxisSize.min,
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: <Widget>[
-                                    SizedBox(height: 20),
-                                    dropdown(
-                                        'Emirate', controlwidth, _nationality),
-                                    SizedBox(
-                                      width: 10,
-                                    ),
-                                    dropdown(
-                                        'City', controlwidth, _nationality),
-                                  ],
-                                ),
-                                SizedBox(height: 20),
-                                Row(
-                                  mainAxisSize: MainAxisSize.min,
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: <Widget>[
-                                    SizedBox(height: 20),
-                                    dropdown(
-                                        'Area', controlwidth, _nationality),
-                                    SizedBox(
-                                      width: 10,
-                                    ),
-                                    textfield('Street', controlwidth),
-                                  ],
-                                ),
-                                SizedBox(height: 20),
-                                Row(
-                                  mainAxisSize: MainAxisSize.min,
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: <Widget>[
-                                    textfield('Building', controlwidth),
-                                    SizedBox(
-                                      width: 10,
-                                    ),
-                                    Column(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                      children: <Widget>[
-                                        Text(
-                                          'Landmark',
-                                          style: TextStyle(
-                                              fontSize: 13,
-                                              fontWeight: FontWeight.w500,
-                                              color: Colors.black
-                                                  .withOpacity(0.8)),
-                                          textAlign: TextAlign.left,
-                                        ),
-                                        SizedBox(height: 7),
-                                        SizedBox(
-                                          width: controlwidth,
-                                          height: 40,
-                                          child: TextFormField(
-                                              decoration: InputDecoration(
-                                            fillColor: Colors.white,
-                                            contentPadding:
-                                                const EdgeInsets.all(6.0),
-                                            enabledBorder: OutlineInputBorder(
-                                              borderRadius:
-                                                  BorderRadius.circular(5.0),
-                                              borderSide: BorderSide(
-                                                color: Colors.black38,
-                                                width: 0.5,
-                                              ),
-                                            ),
-                                            focusedBorder: OutlineInputBorder(
-                                              borderRadius:
-                                                  BorderRadius.circular(5.0),
-                                              borderSide: BorderSide(
-                                                color: Colors.black38,
-                                                width: 0.5,
-                                              ),
-                                            ),
-                                          )),
-                                        ),
-                                      ],
-                                    ),
-                                  ],
-                                ),
-                                SizedBox(height: 20),
-                                Row(
-                                  mainAxisSize: MainAxisSize.min,
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: <Widget>[
-                                    SizedBox(height: 20),
-                                    Column(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                      children: <Widget>[
-                                        Text(
-                                          'Makani No',
-                                          style: TextStyle(
-                                              fontSize: 13,
-                                              fontWeight: FontWeight.w500,
-                                              color: Colors.black
-                                                  .withOpacity(0.8)),
-                                          textAlign: TextAlign.left,
-                                        ),
-                                        SizedBox(height: 7),
-                                        SizedBox(
-                                          width: controlwidth,
-                                          height: 40,
-                                          child: TextFormField(
-                                              decoration: InputDecoration(
-                                            fillColor: Colors.white,
-                                            contentPadding:
-                                                const EdgeInsets.all(6.0),
-                                            enabledBorder: OutlineInputBorder(
-                                              borderRadius:
-                                                  BorderRadius.circular(5.0),
-                                              borderSide: BorderSide(
-                                                color: Colors.black38,
-                                                width: 0.5,
-                                              ),
-                                            ),
-                                            focusedBorder: OutlineInputBorder(
-                                              borderRadius:
-                                                  BorderRadius.circular(5.0),
-                                              borderSide: BorderSide(
-                                                color: Colors.black38,
-                                                width: 0.5,
-                                              ),
-                                            ),
-                                          )),
-                                        ),
-                                      ],
-                                    ),
-                                  ],
-                                ),
-                                Text(
-                                  'Address Outside UAE',
-                                  style: TextStyle(
-                                    fontSize: 15,
-                                    height: 3,
-                                    fontWeight: FontWeight.bold,
-                                    color: textColor,
-                                  ),
-                                  textAlign: textAlignment,
-                                ),
-                                SizedBox(height: 10),
-                                Row(
-                                  mainAxisSize: MainAxisSize.min,
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: <Widget>[
-                                    SizedBox(height: 20),
-                                    dropdown(
-                                        'Country', controlwidth, _nationality),
-                                    SizedBox(
-                                      width: 10,
-                                    ),
-                                    textfield('Mobile Number', controlwidth),
-                                  ],
-                                ),
-                                SizedBox(height: 20),
-                                Row(
-                                  mainAxisSize: MainAxisSize.min,
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: <Widget>[
-                                    textfield('City', controlwidth),
-                                    SizedBox(
-                                      width: 10,
-                                    ),
-                                    textfield('Address', controlwidth),
-                                  ],
-                                ),
-                                SizedBox(height: 20),
                               ],
                             ),
                           ),
                         ],
                       ),
                     ),
-                  ],
+                  ),
                 ),
-              ),
-            ),
-          ),
-          ScreenTypeLayout(
-            desktop: sectiontitles(),
-//            mobile: null,
-          ),
-        ],
-          )
+                ScreenTypeLayout(
+                  mobile: Container(color: bodyColor),
+                  tablet: sectiontitles(),
+                  desktop: sectiontitles(),
+                ),
               ],
-          ),
-        );
+            ),
+          ],
+        ),
+      );
+//      if (sizingInformation.deviceScreenType == DeviceScreenType.desktop) {
+//        return sectiontitles();
+//      }
     });
   }
 }

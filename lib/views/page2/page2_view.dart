@@ -8,7 +8,7 @@ class Page2View extends StatelessWidget {
     return Container(
       color: Colors.blueGrey[400],
       child: Center(
-        child: Text('Documents View'),
+        child: Text('Status Inquiry View'),
       ),
     );
   }

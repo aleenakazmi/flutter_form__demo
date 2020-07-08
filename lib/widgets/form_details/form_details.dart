@@ -23,9 +23,9 @@ class FormDetails extends StatelessWidget {
                 ? 35
                 : 60;
         double tilewidth =
-        sizingInformation.deviceScreenType == DeviceScreenType.mobile
-            ? 150
-            : 300;
+            sizingInformation.deviceScreenType == DeviceScreenType.mobile
+                ? 150
+                : 300;
         int segmentedControlGroupValue = 0;
 //        final Map<int, Widget> myTabs = const <int, Widget>{
 //          0: Padding(
@@ -97,7 +97,7 @@ class FormDetails extends StatelessWidget {
                       children: <Widget>[
                         MyBullet(textColor),
                         Container(
-                              height: 1, width: tilewidth, color: Colors.black38),
+                            height: 1, width: tilewidth, color: Colors.black38),
                         MyBullet(Colors.white),
                         Container(
                             height: 1, width: tilewidth, color: Colors.black38),
@@ -119,7 +119,7 @@ class FormDetails extends StatelessWidget {
                         ),
                         Text(
                           "Fees & Payments",
-                          style: TextStyle(fontSize: 14,  color: Colors.black),
+                          style: TextStyle(fontSize: 14, color: Colors.black),
                         ),
                       ],
                     )
@@ -138,69 +138,75 @@ class FormDetails extends StatelessWidget {
                 width: 1200,
                 decoration: BoxDecoration(
                   color: Colors.white,
-                  borderRadius: BorderRadius.circular(10),
+                  borderRadius: BorderRadius.circular(5),
                   boxShadow: [BoxShadow(color: Colors.black26)],
                 ),
                 child: ClipRRect(
-                  borderRadius: BorderRadius.circular(10),
+                  borderRadius: BorderRadius.circular(5),
                   child: Container(
                     padding: EdgeInsets.all(15),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       mainAxisSize: MainAxisSize.min,
                       children: <Widget>[
-                        RichText(
-                          textAlign: textAlignment,
-                          text: TextSpan(
-                            text: 'Applicant Name',
-                            style: TextStyle(
-                              fontSize: 15,
-                              color: Colors.grey,
-                              fontWeight: FontWeight.w500,
-                            ),
-                            children: <TextSpan>[
-                              TextSpan(
-                                text: '\nNone',
-                                style: TextStyle(
-                                    color: Colors.black, fontSize: 14),
+                        Expanded(
+                          child: RichText(
+                            textAlign: textAlignment,
+                            text: TextSpan(
+                              text: 'Applicant Name',
+                              style: TextStyle(
+                                fontSize: 15,
+                                color: Colors.grey,
+                                fontWeight: FontWeight.w500,
                               ),
-                            ],
+                              children: <TextSpan>[
+                                TextSpan(
+                                  text: '\nNone',
+                                  style: TextStyle(
+                                      color: Colors.black, fontSize: 14),
+                                ),
+                              ],
+                            ),
                           ),
                         ),
-                        RichText(
-                          textAlign: textAlignment,
-                          text: TextSpan(
-                            text: 'Applicant File No.',
-                            style: TextStyle(
-                              fontSize: 15,
-                              color: Colors.grey,
-                              fontWeight: FontWeight.w500,
-                            ),
-                            children: <TextSpan>[
-                              TextSpan(
-                                text: '\nNone',
-                                style: TextStyle(
-                                    color: Colors.black, fontSize: 14),
+                        Expanded(
+                          child: RichText(
+                            textAlign: textAlignment,
+                            text: TextSpan(
+                              text: 'Applicant File No.',
+                              style: TextStyle(
+                                fontSize: 15,
+                                color: Colors.grey,
+                                fontWeight: FontWeight.w500,
                               ),
-                            ],
+                              children: <TextSpan>[
+                                TextSpan(
+                                  text: '\nNone',
+                                  style: TextStyle(
+                                      color: Colors.black, fontSize: 14),
+                                ),
+                              ],
+                            ),
                           ),
                         ),
-                        RichText(
-                          textAlign: textAlignment,
-                          text: TextSpan(
-                            text: 'Application No.',
-                            style: TextStyle(
-                              fontSize: 15,
-                              color: Colors.grey,
-                              fontWeight: FontWeight.w500,
-                            ),
-                            children: <TextSpan>[
-                              TextSpan(
-                                text: '\nNone',
-                                style: TextStyle(
-                                    color: Colors.black, fontSize: 14),
+                        Expanded(
+                          child: RichText(
+                            textAlign: textAlignment,
+                            text: TextSpan(
+                              text: 'Application No.',
+                              style: TextStyle(
+                                fontSize: 15,
+                                color: Colors.grey,
+                                fontWeight: FontWeight.w500,
                               ),
-                            ],
+                              children: <TextSpan>[
+                                TextSpan(
+                                  text: '\nNone',
+                                  style: TextStyle(
+                                      color: Colors.black, fontSize: 14),
+                                ),
+                              ],
+                            ),
                           ),
                         ),
                         ButtonTheme(
